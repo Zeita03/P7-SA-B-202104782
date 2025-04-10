@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: script-cronjob
-  namespace: sa-p5
+  namespace: sa-p7
 spec:
   schedule: "*/2 * * * *"
   jobTemplate:
