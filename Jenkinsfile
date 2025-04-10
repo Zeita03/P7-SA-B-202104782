@@ -101,7 +101,7 @@ pipeline {
                         clusterName: env.CLUSTER_NAME, 
                         location: env.LOCATION,
                         manifestPattern: './k8s/microservice_1.yaml',
-                        credentialsId: edockerhub-credentialsID,
+                        credentialsId: env.CREDENTIALS_ID,
                         verifyDeployments: false])
 
                 sh "sed -i 's|image_ms2|${MS2_TAG}|g' ./k8s/microservice_2.yaml"
@@ -111,7 +111,7 @@ pipeline {
                         clusterName: env.CLUSTER_NAME, 
                         location: env.LOCATION,
                         manifestPattern: './k8s/microservice_2.yaml',
-                        credentialsId: edockerhub-credentialsID,
+                        credentialsId: env.CREDENTIALS_ID,
                         verifyDeployments: false])
 
                 sh "sed -i 's|image_ms3|${MS3_TAG}|g' ./k8s/microservice_3.yaml"
@@ -121,7 +121,7 @@ pipeline {
                         clusterName: env.CLUSTER_NAME, 
                         location: env.LOCATION,
                         manifestPattern: './k8s/microservice_3.yaml',
-                        credentialsId: edockerhub-credentialsID,
+                        credentialsId: env.CREDENTIALS_ID,
                         verifyDeployments: false])
 
                 sh "sed -i 's|image_ms4|${MS4_TAG}|g' ./k8s/microservice_4.yaml"
@@ -131,7 +131,7 @@ pipeline {
                         clusterName: env.CLUSTER_NAME, 
                         location: env.LOCATION,
                         manifestPattern: './k8s/microservice_4.yaml',
-                        credentialsId: edockerhub-credentialsID,
+                        credentialsId: env.CREDENTIALS_ID,
                         verifyDeployments: false])
             }
         }
