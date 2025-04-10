@@ -52,6 +52,54 @@ En esta práctica se hace la creación de un cluster de kubernetes mediante la h
     kops create cluster --name=cluster-p7.k8s.local --cloud=gce --zones=us-central1-a --project=proyecto-sa-455021 --node-count=1 --node-size=n1-standard-2 --control-plane-size=n1-standard-2 --state=$env:KOPS_STATE_STORE
     ```
 
+    ### **Instalación de Jenkins**
+
+    Para poder instalar jenkins es necesario realizarlo mediante la pagina oficial para neustro sistema operativo, en este caso se explican los comandos para Debian|Ubuntu y Linux Mint:
+
+    **Long Term Support Release**
+
+    ```sh
+    sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+    sudo apt-get update
+    sudo apt-get install jenkins
+    ```
+
+    **Instalación de Java**
+
+    ```sh
+    sudo apt update
+    sudo apt install fontconfig openjdk-17-jre
+    java -version
+    ```
+
+    Y deberíamos ver una salida asi:
+
+    ```sh
+    openjdk version "17.0.13" 2024-10-15
+    OpenJDK Runtime Environment (build 17.0.13+11-Debian-2)
+    OpenJDK 64-Bit Server VM (build 17.0.13+11-Debian-2, mixed mode, sharing)
+    ```
+
+    ### **Iinicar Jenkins**
+
+    Y una vez hayamos instalado y comprobado todo, podremos iniciar jenkins e ingresar a `localhost:8080`, y si accedemos podremos configurar nuestro Jenkins.
+
+    **Activamos el servicio con:**
+
+    ```sh
+    sudo systemctl enable jenkins
+    ```
+
+    **Iniciamos Jenkins**
+    
+    ```sh
+    sudo systemctl start jenkins
+    ```
+
     
 
 ## **Archivos YAML**
