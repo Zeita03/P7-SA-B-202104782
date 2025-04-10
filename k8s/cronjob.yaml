@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: script-cronjob
+  namespace: sa-p5
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: python-script
+            image: zeita/cronjob:v2
+            command: ["python", "/app/main.py"]
+            env:
+            - name: MONGO_URI
+              value: "mongodb+srv://zeita03:dbUserPassword@cluster-mongo-sa.pu2gv3r.mongodb.net/ms_cronjob?retryWrites=true&w=majority&appName=cluster-mongo-sa"
+          restartPolicy: OnFailure

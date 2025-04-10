@@ -1,0 +1,52 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: practica6-ingresss
+  namespace: sa-p5
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: microservice1-service
+                port:
+                  number: 5000
+          - path: /user
+            pathType: Prefix
+            backend:
+              service: 
+                name: microservice1-service
+                port:
+                  number: 5000
+          - path: /auth
+            pathType: Prefix
+            backend:
+              service: 
+                name: microservice1-service
+                port:
+                  number: 5000
+          - path: /products
+            pathType: Prefix
+            backend:
+              service: 
+                name: microservice2-service
+                port:
+                  number: 5001
+          - path: /orders
+            pathType: Prefix
+            backend:
+              service: 
+                name: microservice3-service
+                port:
+                  number: 5002
+          - path: /payments
+            pathType: Prefix
+            backend:
+              service: 
+                name: microservice4-service
+                port:
+                  number: 5003
