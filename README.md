@@ -84,7 +84,7 @@ En esta práctica se hace la creación de un cluster de kubernetes mediante la h
     OpenJDK 64-Bit Server VM (build 17.0.13+11-Debian-2, mixed mode, sharing)
     ```
 
-    ### **Iinicar Jenkins**
+    ### **Iniciar Jenkins**
 
     Y una vez hayamos instalado y comprobado todo, podremos iniciar jenkins e ingresar a `localhost:8080`, y si accedemos podremos configurar nuestro Jenkins.
 
@@ -100,7 +100,16 @@ En esta práctica se hace la creación de un cluster de kubernetes mediante la h
     sudo systemctl start jenkins
     ```
 
-    
+## **Archivo Jenkins**
+- ### [Jenkins](./Jenkinsfile)
+
+## **Flujo de Jenkins**
+
+![FLUJO](./imgs/pipeline.png)
+
+## **Registry Docker Hub**
+
+![DH](./imgs/dockerhub.png)
 
 ## **Archivos YAML**
 
